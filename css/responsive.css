@@ -160,3 +160,11 @@
     font-size: 2rem;
   }
 }
+
+/* Make 404 buttons equal width on mobile */
+@media (max-width: 575.98px) {
+    .btn-404 {
+        width: 100%;
+        justify-content: center;
+    }
+}
