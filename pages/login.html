@@ -107,6 +107,21 @@
             color: #fff;
         }
     </style>
+
+    <style>
+        /* Force Mobile CTA Contacts Alignment */
+        @media (max-width: 991.98px) {
+            .cta-contacts-wrapper {
+                flex-direction: column !important;
+                align-items: center !important;
+            }
+            .cta-contacts-wrapper > div {
+                width: 250px !important;
+                justify-content: flex-start !important;
+            }
+        }
+    </style>
+
 </head>
 <body class="d-flex align-items-center min-vh-100">
 

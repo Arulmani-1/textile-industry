@@ -168,3 +168,16 @@
         justify-content: center;
     }
 }
+
+/* CTA Contacts Mobile Alignment */
+@media (max-width: 991.98px) {
+    .cta-contacts-wrapper {
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+    .cta-contacts-wrapper > div {
+        width: 250px !important;
+        justify-content: flex-start !important;
+        margin-bottom: 10px;
+    }
+}

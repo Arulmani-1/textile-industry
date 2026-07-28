@@ -22,6 +22,21 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/animation.css">
     <link rel="stylesheet" href="../css/responsive.css">
+
+    <style>
+        /* Force Mobile CTA Contacts Alignment */
+        @media (max-width: 991.98px) {
+            .cta-contacts-wrapper {
+                flex-direction: column !important;
+                align-items: center !important;
+            }
+            .cta-contacts-wrapper > div {
+                width: 250px !important;
+                justify-content: flex-start !important;
+            }
+        }
+    </style>
+
 </head>
 <body>
 
@@ -301,7 +316,7 @@
             <h2 class="fw-bold text-white mb-3" style="font-family: 'Playfair Display', serif; font-size: 2.5rem;">Don't Hesitate To Contact Us If You Have Any<br>Questions</h2>
             <p class="mb-5 mx-auto text-light opacity-75" style="max-width: 600px; line-height: 1.6;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             
-            <div class="d-flex justify-content-center gap-4 gap-md-5 mb-5 flex-wrap">
+            <div class="d-flex justify-content-center gap-4 gap-md-5 mb-5 flex-wrap cta-contacts-wrapper">
                 <div class="d-flex align-items-center text-start">
                     <div class="rounded-circle d-flex justify-content-center align-items-center" style="width: 55px; height: 55px; border: 1.5px solid #79c8a1; color: #79c8a1;">
                         <i class="bi bi-telephone fs-5"></i>

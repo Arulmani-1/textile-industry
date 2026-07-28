@@ -16,6 +16,21 @@
     <link rel="stylesheet" href="../css/animation.css">
     <link rel="stylesheet" href="../css/responsive.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css" />
+
+    <style>
+        /* Force Mobile CTA Contacts Alignment */
+        @media (max-width: 991.98px) {
+            .cta-contacts-wrapper {
+                flex-direction: column !important;
+                align-items: center !important;
+            }
+            .cta-contacts-wrapper > div {
+                width: 250px !important;
+                justify-content: flex-start !important;
+            }
+        }
+    </style>
+
 </head>
 <body style="background: var(--bg-color);">
     <div class="preloader">
