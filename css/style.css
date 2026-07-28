@@ -832,3 +832,9 @@ img {
     transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(255, 184, 0, 0.4);
 }
+
+/* Footer Newsletter Placeholder Color */
+.footer-widget .form-control::placeholder {
+    color: rgba(255, 255, 255, 0.7) !important;
+    opacity: 1 !important; /* Required for Firefox */
+}
