@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - STACKLY</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f6f9;
+            overflow-x: hidden;
+        }
+        
+        /* Sidebar Styling */
+        #sidebar {
+            width: 250px;
+            height: 100vh;
+            background-color: #151a28;
+            color: #fff;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1040;
+            transition: all 0.3s ease;
+        }
+        
+        .sidebar-brand {
+            padding: 1.5rem;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .sidebar-menu {
+            padding: 1rem 0;
+            list-style: none;
+            margin: 0;
+        }
+        
+        .sidebar-menu li {
+            padding: 0.5rem 1rem;
+        }
+        
+        .sidebar-menu a {
+            color: #8a94a6;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            padding: 0.8rem 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .sidebar-menu a:hover, .sidebar-menu a.active {
+            background-color: #1e2536;
+            color: #fbb315;
+        }
+        
+        .sidebar-menu a i {
+            margin-right: 15px;
+            font-size: 1.2rem;
+        }
+        
+        /* Main Content Styling */
+        #main-content {
+            margin-left: 250px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease;
+        }
+        
+        /* Navbar Styling */
+        .dashboard-nav {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1030;
+        }
+        
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #151a28;
+            cursor: pointer;
+        }
+        
+        .content-section {
+            display: none;
+            padding: 2rem;
+            flex-grow: 1;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+        
+        .content-section.active-section {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 991.98px) {
+            #sidebar {
+                transform: translateX(-100%); /* Hidden by default on mobile */
+            }
+            #sidebar.show-sidebar {
+                transform: translateX(0); /* Shown when toggled */
+            }
+            #main-content {
+                margin-left: 0;
+            }
+            .menu-toggle {
+                display: block;
+            }
+            .dashboard-nav {
+                padding: 1rem;
+            }
+            
+            /* Overlay for mobile */
+            .sidebar-overlay {
+                display: none;
+                position: fixed;
+                top: 0; left: 0; right: 0; bottom: 0;
+                background: rgba(0,0,0,0.5);
+                z-index: 1035;
+            }
+            .sidebar-overlay.show {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Mobile Overlay -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- Sidebar -->
+    <nav id="sidebar">
+        <div class="sidebar-brand">
+            <a href="admin_dashboard.html">
+                <img src="../images/logo.webp" alt="Stackly Logo" style="height: 40px;">
+            </a>
+        </div>
+        <ul class="sidebar-menu">
+            <li>
+                <a href="#" class="sidebar-link active" data-target="dashboard-overview">
+                    <i class="bi bi-speedometer2"></i> Overview
+                </a>
+            </li>
+            <li>
+                <a href="#" class="sidebar-link" data-target="manage-users">
+                    <i class="bi bi-people"></i> Manage Users
+                </a>
+            </li>
+            <li>
+                <a href="#" class="sidebar-link" data-target="factory-orders">
+                    <i class="bi bi-box-seam"></i> Factory Orders
+                </a>
+            </li>
+            <li>
+                <a href="#" class="sidebar-link" data-target="inventory">
+                    <i class="bi bi-layers"></i> Inventory
+                </a>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <div id="main-content">
+        <!-- Navbar -->
+        <header class="dashboard-nav">
+            <div class="d-flex align-items-center">
+                <button class="menu-toggle me-3" id="menuToggle">
+                    <i class="bi bi-list"></i>
+                </button>
+                <h5 class="mb-0 fw-bold d-none d-sm-block">Welcome back Admin</h5>
+            </div>
+            
+            <div class="ms-auto d-flex align-items-center">
+                <div class="me-3">
+                    <span class="d-flex align-items-center text-dark">
+                        <strong id="navbarUserEmail">Admin User</strong>
+                    </span>
+                </div>
+                <a href="login.html" class="btn btn-outline-danger btn-sm rounded-pill px-3 fw-medium">
+                    <i class="bi bi-box-arrow-right"></i><span class="d-none d-sm-inline ms-1">Logout</span>
+                </a>
+            </div>
+        </header>
+
+        <!-- Dynamic Sections -->
+        
+        <!-- Overview Section -->
+        <section id="dashboard-overview" class="content-section active-section">
+            <h2 class="fw-bold mb-4">Welcome back Admin</h2>
+            
+            <div class="row g-4 mb-4">
+                <div class="col-12 col-sm-6 col-xl-3">
+                    <div class="card border-0 shadow-sm rounded-3">
+                        <div class="card-body p-4 d-flex align-items-center">
+                            <div class="bg-primary bg-opacity-10 text-primary rounded p-3 me-3">
+                                <i class="bi bi-people fs-3"></i>
+                            </div>
+                            <div>
+                                <h6 class="text-muted mb-1">Total Users</h6>
+                                <h3 class="fw-bold mb-0">1,245</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-xl-3">
+                    <div class="card border-0 shadow-sm rounded-3">
+                        <div class="card-body p-4 d-flex align-items-center">
+                            <div class="bg-success bg-opacity-10 text-success rounded p-3 me-3">
+                                <i class="bi bi-currency-dollar fs-3"></i>
+                            </div>
+                            <div>
+                                <h6 class="text-muted mb-1">Revenue</h6>
+                                <h3 class="fw-bold mb-0">$84,200</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-xl-3">
+                    <div class="card border-0 shadow-sm rounded-3">
+                        <div class="card-body p-4 d-flex align-items-center">
+                            <div class="bg-warning bg-opacity-10 text-warning rounded p-3 me-3">
+                                <i class="bi bi-box-seam fs-3"></i>
+                            </div>
+                            <div>
+                                <h6 class="text-muted mb-1">Pending Orders</h6>
+                                <h3 class="fw-bold mb-0">48</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-xl-3">
+                    <div class="card border-0 shadow-sm rounded-3">
+                        <div class="card-body p-4 d-flex align-items-center">
+                            <div class="bg-danger bg-opacity-10 text-danger rounded p-3 me-3">
+                                <i class="bi bi-exclamation-triangle fs-3"></i>
+                            </div>
+                            <div>
+                                <h6 class="text-muted mb-1">Issues Reported</h6>
+                                <h3 class="fw-bold mb-0">3</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card border-0 shadow-sm rounded-3">
+                <div class="card-header bg-white border-0 pt-4 pb-0 px-4">
+                    <h5 class="fw-bold">Recent Activity</h5>
+                </div>
+                <div class="card-body p-4">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item px-0 py-3 d-flex justify-content-between align-items-center">
+                            <div>
+                                <h6 class="mb-1">Order #8921 Shipped</h6>
+                                <small class="text-muted">10 minutes ago</small>
+                            </div>
+                            <span class="badge bg-success rounded-pill">Completed</span>
+                        </li>
+                        <li class="list-group-item px-0 py-3 d-flex justify-content-between align-items-center">
+                            <div>
+                                <h6 class="mb-1">New Client Registered: TechCorp</h6>
+                                <small class="text-muted">1 hour ago</small>
+                            </div>
+                            <span class="badge bg-primary rounded-pill">New</span>
+                        </li>
+                        <li class="list-group-item px-0 py-3 d-flex justify-content-between align-items-center">
+                            <div>
+                                <h6 class="mb-1">Inventory Alert: Cotton Fabric low</h6>
+                                <small class="text-muted">3 hours ago</small>
+                            </div>
+                            <span class="badge bg-warning rounded-pill">Alert</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Manage Users Section -->
+        <section id="manage-users" class="content-section">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2 class="fw-bold mb-0">Manage Users</h2>
+                <button class="btn" style="background-color: #fbb315; color: #151a28; font-weight: 600;">+ Add New User</button>
+            </div>
+            
+            <div class="card border-0 shadow-sm rounded-3">
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table table-hover mb-0 align-middle">
+                            <thead class="table-light">
+                                <tr>
+                                    <th class="py-3 px-4">Name</th>
+                                    <th class="py-3">Email</th>
+                                    <th class="py-3">Role</th>
+                                    <th class="py-3">Status</th>
+                                    <th class="py-3 text-end px-4">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="py-3 px-4 fw-medium">Simon Rhodes</td>
+                                    <td class="py-3 text-muted">simon@company.com</td>
+                                    <td class="py-3"><span class="badge bg-secondary">Client</span></td>
+                                    <td class="py-3"><span class="badge bg-success bg-opacity-25 text-success">Active</span></td>
+                                    <td class="py-3 text-end px-4">
+                                        <button class="btn btn-sm btn-light me-1"><i class="bi bi-pencil"></i></button>
+                                        <button class="btn btn-sm btn-light text-danger"><i class="bi bi-trash"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3 px-4 fw-medium">Poppie Person</td>
+                                    <td class="py-3 text-muted">poppie@company.com</td>
+                                    <td class="py-3"><span class="badge bg-secondary">Client</span></td>
+                                    <td class="py-3"><span class="badge bg-success bg-opacity-25 text-success">Active</span></td>
+                                    <td class="py-3 text-end px-4">
+                                        <button class="btn btn-sm btn-light me-1"><i class="bi bi-pencil"></i></button>
+                                        <button class="btn btn-sm btn-light text-danger"><i class="bi bi-trash"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3 px-4 fw-medium">Miley Reynolds</td>
+                                    <td class="py-3 text-muted">miley@design.com</td>
+                                    <td class="py-3"><span class="badge bg-primary">Staff</span></td>
+                                    <td class="py-3"><span class="badge bg-warning bg-opacity-25 text-warning">Inactive</span></td>
+                                    <td class="py-3 text-end px-4">
+                                        <button class="btn btn-sm btn-light me-1"><i class="bi bi-pencil"></i></button>
+                                        <button class="btn btn-sm btn-light text-danger"><i class="bi bi-trash"></i></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Factory Orders Section -->
+        <section id="factory-orders" class="content-section">
+            <h2 class="fw-bold mb-4">Factory Orders</h2>
+            
+            <div class="card border-0 shadow-sm rounded-3">
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table table-hover mb-0 align-middle">
+                            <thead class="table-light">
+                                <tr>
+                                    <th class="py-3 px-4">Order ID</th>
+                                    <th class="py-3">Client Name</th>
+                                    <th class="py-3">Material Type</th>
+                                    <th class="py-3">Quantity</th>
+                                    <th class="py-3">Status</th>
+                                    <th class="py-3 text-end px-4">Deadline</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="py-3 px-4 fw-bold">#FO-9024</td>
+                                    <td class="py-3">Vogue Apparel</td>
+                                    <td class="py-3">Premium Denim</td>
+                                    <td class="py-3">5,000 m</td>
+                                    <td class="py-3"><span class="badge bg-primary">Dyeing Phase</span></td>
+                                    <td class="py-3 text-end px-4">Aug 28, 2026</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3 px-4 fw-bold">#FO-9018</td>
+                                    <td class="py-3">Nordstrom</td>
+                                    <td class="py-3">Organic Cotton</td>
+                                    <td class="py-3">12,500 m</td>
+                                    <td class="py-3"><span class="badge bg-info">Weaving</span></td>
+                                    <td class="py-3 text-end px-4">Sep 05, 2026</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3 px-4 fw-bold">#FO-8992</td>
+                                    <td class="py-3">Zara Inc.</td>
+                                    <td class="py-3">Silk Chiffon</td>
+                                    <td class="py-3">2,000 m</td>
+                                    <td class="py-3"><span class="badge bg-warning text-dark">Quality Check</span></td>
+                                    <td class="py-3 text-end px-4">Aug 20, 2026</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3 px-4 fw-bold">#FO-8980</td>
+                                    <td class="py-3">H&M</td>
+                                    <td class="py-3">Recycled Polyester</td>
+                                    <td class="py-3">10,000 m</td>
+                                    <td class="py-3"><span class="badge bg-success">Ready to Ship</span></td>
+                                    <td class="py-3 text-end px-4">Aug 18, 2026</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Inventory Section -->
+        <section id="inventory" class="content-section">
+            <h2 class="fw-bold mb-4">Inventory Management</h2>
+            
+            <div class="row g-4">
+                <div class="col-12 col-md-6 col-xl-4">
+                    <div class="card border-0 shadow-sm rounded-3 h-100">
+                        <div class="card-body p-4">
+                            <div class="d-flex justify-content-between align-items-start mb-3">
+                                <div>
+                                    <h5 class="fw-bold mb-1">Raw Cotton</h5>
+                                    <span class="badge bg-success bg-opacity-25 text-success">In Stock</span>
+                                </div>
+                                <div class="bg-light p-2 rounded">
+                                    <i class="bi bi-box-seam fs-4 text-muted"></i>
+                                </div>
+                            </div>
+                            <h3 class="fw-bold mb-0">124,500 <span class="fs-6 text-muted fw-normal">kg</span></h3>
+                            <div class="progress mt-3 mb-2" style="height: 6px;">
+                                <div class="progress-bar bg-success" role="progressbar" style="width: 85%;"></div>
+                            </div>
+                            <small class="text-muted">Reorder level: 20,000 kg</small>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-12 col-md-6 col-xl-4">
+                    <div class="card border-0 shadow-sm rounded-3 h-100">
+                        <div class="card-body p-4">
+                            <div class="d-flex justify-content-between align-items-start mb-3">
+                                <div>
+                                    <h5 class="fw-bold mb-1">Premium Silk</h5>
+                                    <span class="badge bg-warning bg-opacity-25 text-warning">Low Stock</span>
+                                </div>
+                                <div class="bg-light p-2 rounded">
+                                    <i class="bi bi-box-seam fs-4 text-muted"></i>
+                                </div>
+                            </div>
+                            <h3 class="fw-bold mb-0">1,250 <span class="fs-6 text-muted fw-normal">kg</span></h3>
+                            <div class="progress mt-3 mb-2" style="height: 6px;">
+                                <div class="progress-bar bg-warning" role="progressbar" style="width: 25%;"></div>
+                            </div>
+                            <small class="text-muted">Reorder level: 1,500 kg (Reorder Placed)</small>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-12 col-md-6 col-xl-4">
+                    <div class="card border-0 shadow-sm rounded-3 h-100">
+                        <div class="card-body p-4">
+                            <div class="d-flex justify-content-between align-items-start mb-3">
+                                <div>
+                                    <h5 class="fw-bold mb-1">Polyester Yarn</h5>
+                                    <span class="badge bg-success bg-opacity-25 text-success">In Stock</span>
+                                </div>
+                                <div class="bg-light p-2 rounded">
+                                    <i class="bi bi-box-seam fs-4 text-muted"></i>
+                                </div>
+                            </div>
+                            <h3 class="fw-bold mb-0">45,000 <span class="fs-6 text-muted fw-normal">kg</span></h3>
+                            <div class="progress mt-3 mb-2" style="height: 6px;">
+                                <div class="progress-bar bg-success" role="progressbar" style="width: 60%;"></div>
+                            </div>
+                            <small class="text-muted">Reorder level: 10,000 kg</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card border-0 shadow-sm rounded-3 mt-4">
+                <div class="card-header bg-white border-0 pt-4 pb-0 px-4 d-flex justify-content-between align-items-center">
+                    <h5 class="fw-bold mb-0">Recent Supply Deliveries</h5>
+                    <button class="btn btn-sm btn-outline-secondary">View All</button>
+                </div>
+                <div class="card-body p-0 mt-3">
+                    <div class="table-responsive">
+                        <table class="table table-hover mb-0 align-middle">
+                            <tbody>
+                                <tr>
+                                    <td class="py-3 px-4"><i class="bi bi-truck text-primary me-2"></i> <strong>Indigo Dye Batch</strong></td>
+                                    <td class="py-3 text-muted">Supplier: ChemCorp Inc.</td>
+                                    <td class="py-3 fw-medium">500 Liters</td>
+                                    <td class="py-3 text-end px-4"><small class="text-muted">Arrived Today, 09:00 AM</small></td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3 px-4"><i class="bi bi-truck text-primary me-2"></i> <strong>Linen Fibers</strong></td>
+                                    <td class="py-3 text-muted">Supplier: Global Textiles</td>
+                                    <td class="py-3 fw-medium">8,000 kg</td>
+                                    <td class="py-3 text-end px-4"><small class="text-muted">Arrived Yesterday, 14:30 PM</small></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Sidebar Navigation Logic
+            const sidebarLinks = document.querySelectorAll('.sidebar-link');
+            const contentSections = document.querySelectorAll('.content-section');
+            
+            sidebarLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Remove active class from all links
+                    sidebarLinks.forEach(l => l.classList.remove('active'));
+                    // Add active class to clicked link
+                    this.classList.add('active');
+                    
+                    // Hide all sections
+                    contentSections.forEach(section => section.classList.remove('active-section'));
+                    
+                    // Show targeted section
+                    const targetId = this.getAttribute('data-target');
+                    document.getElementById(targetId).classList.add('active-section');
+                    
+                    // Close sidebar on mobile after clicking
+                    if (window.innerWidth < 992) {
+                        document.getElementById('sidebar').classList.remove('show-sidebar');
+                        document.getElementById('sidebarOverlay').classList.remove('show');
+                    }
+                });
+            });
+            
+            // Mobile Menu Toggle
+            const menuToggle = document.getElementById('menuToggle');
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebarOverlay');
+            
+            menuToggle.addEventListener('click', function() {
+                sidebar.classList.add('show-sidebar');
+                overlay.classList.add('show');
+            });
+            
+            overlay.addEventListener('click', function() {
+                sidebar.classList.remove('show-sidebar');
+                overlay.classList.remove('show');
+            });
+            
+            // Load Email from localStorage
+            const userEmail = localStorage.getItem('userEmail');
+            if (userEmail) {
+                const emailElement = document.getElementById('navbarUserEmail');
+                if (emailElement) {
+                    emailElement.textContent = userEmail;
+                }
+            }
+        });
+    </script>
+</body>
+</html>

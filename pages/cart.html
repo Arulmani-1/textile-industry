@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - STACKLY</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/animation.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body style="background: var(--bg-color);">
+    <div class="preloader">
+        <h2 class="preloader-logo"><img src="../images/logo.webp" alt="Stackly Logo" style="height: 65px;"></h2>
+        <div class="thread-loader"></div>
+        <div class="loading-percentage numbers">0%</div>
+    </div>
+
+        <nav class="navbar navbar-expand-lg navbar-premium sticky">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html"><img src="../images/logo.webp" alt="Stackly Logo" style="height: 65px;"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="bi bi-list text-white fs-1"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">Home</a>
+                    </li>
+                    <li class="nav-item dropdown hover-target">
+                        <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            About
+                        </a>
+                        <ul class="dropdown-menu glass-card p-2" aria-labelledby="aboutDropdown" style="background: rgba(15, 23, 42, 0.95);">
+                            <li><a class="dropdown-item text-white hover-target" href="about.html">About Us</a></li>
+                            <li><a class="dropdown-item text-white hover-target" href="team.html">Our Team</a></li>
+                            <li><a class="dropdown-item text-white hover-target" href="faq.html">FAQ</a></li>
+                            <li><a class="dropdown-item text-white hover-target" href="error404.html">404 Error</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html">Services</a>
+                    </li>
+                    <li class="nav-item dropdown hover-target">
+                        <a class="nav-link dropdown-toggle" href="#" id="storeDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Store
+                        </a>
+                        <ul class="dropdown-menu glass-card p-2" aria-labelledby="storeDropdown" style="background: rgba(15, 23, 42, 0.95);">
+                            <li><a class="dropdown-item text-white hover-target" href="shop.html">Shop</a></li>
+                            <li><a class="dropdown-item text-white hover-target" href="cart.html">Cart</a></li>
+                            <li><a class="dropdown-item text-white hover-target" href="checkout.html">Checkout</a></li>
+                            <li><a class="dropdown-item text-white hover-target" href="account.html">My Account</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="blog.html">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+                <div class="nav-icons d-flex align-items-center">
+                    <a href="login.html" class="btn btn-outline-premium ms-3 ms-lg-4 px-4 py-2 hover-target">Login</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="page-header" style="padding-top: 200px;">
+        <div class="container position-relative z-index-2">
+            <h1 class="page-title text-reveal">Shopping Cart</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+                    <li class="breadcrumb-item active">Cart</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+
+    <!-- CART SECTION -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="row g-5">
+                <!-- Cart Items -->
+                <div class="col-lg-8" data-aos="fade-right">
+                    <div id="empty-cart-message" class="text-center py-5" style="display: none;">
+                        <i class="bi bi-cart-x fs-1 text-muted mb-3 d-block"></i>
+                        <h4 class="fw-bold mb-3">Your cart is currently empty.</h4>
+                        <p class="text-muted mb-4">Before proceed to checkout you must add some products to your shopping cart.</p>
+                        <a href="shop.html" class="btn btn-premium hover-target px-4 py-2">Return to Shop</a>
+                    </div>
+                    
+                    <div class="table-responsive" id="cart-table-container">
+                        <table class="table align-middle">
+                            <thead class="table-light">
+                                <tr>
+                                    <th scope="col" class="border-0 p-4">Product</th>
+                                    <th scope="col" class="border-0 p-4">Price</th>
+                                    <th scope="col" class="border-0 p-4">Quantity</th>
+                                    <th scope="col" class="border-0 p-4">Subtotal</th>
+                                    <th scope="col" class="border-0 p-4"></th>
+                                </tr>
+                            </thead>
+                            <tbody id="cart-table-body">
+                                <!-- Dynamically populated -->
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="d-flex justify-content-between align-items-center mt-4">
+                        <div class="input-group w-50">
+                            <input type="text" class="form-control border-secondary" placeholder="Coupon code">
+                            <button class="btn btn-outline-secondary px-4" type="button">Apply</button>
+                        </div>
+                        <button class="btn btn-outline-premium hover-target">Update Cart</button>
+                    </div>
+                </div>
+
+                <!-- Order Summary -->
+                <div class="col-lg-4" data-aos="fade-left" id="cart-summary-container">
+                    <div class="card border-0 shadow-lg" style="background: var(--dark-section); color: #fff;">
+                        <div class="card-body p-5">
+                            <h4 class="mb-4 text-white">Cart Totals</h4>
+                            <div class="d-flex justify-content-between mb-3 text-light">
+                                <span>Subtotal</span>
+                                <span class="numbers fw-bold" id="order-subtotal">₹0.00</span>
+                            </div>
+                            <hr class="border-secondary mb-4">
+                            <div class="mb-4">
+                                <h6 class="text-white mb-3">Shipping</h6>
+                                <div class="form-check mb-2 text-light">
+                                    <input class="form-check-input bg-transparent border-secondary" type="radio" name="shipping" id="flatRate" checked>
+                                    <label class="form-check-label d-flex justify-content-between" for="flatRate">
+                                        Flat rate: <span class="numbers">₹150.00</span>
+                                    </label>
+                                </div>
+                                <p class="small text-muted mt-2">Shipping options will be updated during checkout.</p>
+                            </div>
+                            <hr class="border-secondary mb-4">
+                                <div class="d-flex justify-content-between mb-0 pt-3 border-top border-secondary text-white">
+                                    <span class="fs-5 fw-bold">Total</span>
+                                    <span class="fs-5 numbers fw-bold text-premium" id="order-total">₹0.00</span>
+                                </div>
+                            </div>
+                            <button onclick="window.location.href='checkout.html'" class="btn btn-premium w-100 py-3 mt-4 hover-target fw-bold">Proceed to Checkout</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- CTA / CONTACT SECTION -->
+    <section class="cta-section py-5 position-relative" style="background-image: url('../images/faq_bg.webp'); background-size: cover; background-position: center; background-attachment: fixed;">
+        <!-- Dark Overlay -->
+        <div class="position-absolute top-0 start-0 w-100 h-100" style="background-color: rgba(30, 40, 50, 0.85); z-index: 1;"></div>
+        
+        <div class="container position-relative py-5" style="z-index: 2;">
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-8" data-aos="fade-up">
+                    <h2 class="text-white fw-bold mb-3" style="font-size: 2.5rem;">Don't Hesitate To Contact Us If You Have Any Questions</h2>
+                    <p class="text-white mb-5 mx-auto" style="opacity: 0.9; max-width: 600px; line-height: 1.7; font-size: 0.95rem;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    
+                    <div class="d-flex flex-wrap justify-content-center gap-4 gap-md-5 mb-5">
+                        <!-- Phone -->
+                        <div class="d-flex align-items-center text-start">
+                            <div class="icon-box me-3 d-flex align-items-center justify-content-center rounded-circle" style="width: 60px; height: 60px; border: 2px solid #79cca3;">
+                                <i class="bi bi-telephone-outbound text-white fs-4" style="color: #79cca3 !important;"></i>
+                            </div>
+                            <div>
+                                <h5 class="text-white fw-bold mb-1 fs-5">Contact Us</h5>
+                                <p class="text-white mb-0" style="opacity: 0.8; font-size: 0.9rem;">(+62)81 589 2581</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Mail -->
+                        <div class="d-flex align-items-center text-start">
+                            <div class="icon-box me-3 d-flex align-items-center justify-content-center rounded-circle" style="width: 60px; height: 60px; border: 2px solid #79cca3;">
+                                <i class="bi bi-envelope-open text-white fs-4" style="color: #79cca3 !important;"></i>
+                            </div>
+                            <div>
+                                <h5 class="text-white fw-bold mb-1 fs-5">Mail Us</h5>
+                                <p class="text-white mb-0" style="opacity: 0.8; font-size: 0.9rem;">support@domain.com</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="contact.html" class="btn text-white fw-semibold px-5 py-3 hover-target border-0" style="background-color: #79cca3; border-radius: 4px; box-shadow: 0 4px 15px rgba(121, 204, 163, 0.3);">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+        <footer class="footer">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-4 col-md-6 footer-widget" data-aos="fade-up" data-aos-delay="100">
+                    <a href="../index.html" class="footer-logo hover-target"><img src="../images/logo.webp" alt="Stackly Logo" style="height: 65px;"></a>
+                    <p class="text-light opacity-75 mt-4 pe-lg-4">Premium enterprise textile manufacturer delivering excellence and innovation to global fashion and industrial brands since 1988.</p>
+                    <div class="social-icons">
+                        <a href="#" class="hover-target"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" class="hover-target"><i class="bi bi-twitter-x"></i></a>
+                        <a href="#" class="hover-target"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="hover-target"><i class="bi bi-facebook"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 footer-widget" data-aos="fade-up" data-aos-delay="200">
+                    <h4>Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="../index.html" class="hover-target"><i class="bi bi-chevron-right"></i> Home</a></li>
+                        <li><a href="services.html" class="hover-target"><i class="bi bi-chevron-right"></i> Service</a></li>
+                        <li><a href="shop.html" class="hover-target"><i class="bi bi-chevron-right"></i> Shop</a></li>
+                        <li><a href="about.html" class="hover-target"><i class="bi bi-chevron-right"></i> About Us</a></li>
+                        <li><a href="team.html" class="hover-target"><i class="bi bi-chevron-right"></i> Our Team</a></li>
+                        <li><a href="blog.html" class="hover-target"><i class="bi bi-chevron-right"></i> News & Blog</a></li>
+                        <li><a href="contact.html" class="hover-target"><i class="bi bi-chevron-right"></i> Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 footer-widget" data-aos="fade-up" data-aos-delay="300">
+                    <h4>Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="error404.html" class="hover-target"><i class="bi bi-chevron-right"></i> 404 Error</a></li>
+                        <li><a href="faq.html" class="hover-target"><i class="bi bi-chevron-right"></i> FAQ</a></li>
+                        <li><a href="services.html" class="hover-target"><i class="bi bi-chevron-right"></i> Fabric Design</a></li>
+                        <li><a href="services.html" class="hover-target"><i class="bi bi-chevron-right"></i> Mass Production</a></li>
+                        <li><a href="services.html" class="hover-target"><i class="bi bi-chevron-right"></i> Quality Testing</a></li>
+                        <li><a href="services.html" class="hover-target"><i class="bi bi-chevron-right"></i> Export Logistics</a></li>
+                        <li><a href="shop.html" class="hover-target"><i class="bi bi-chevron-right"></i> Online Store</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6 footer-widget" data-aos="fade-up" data-aos-delay="400">
+                    <h4>Newsletter</h4>
+                    <p class="text-light opacity-75">Subscribe to receive the latest updates on sustainable textiles and corporate news.</p>
+                    <form class="mt-4 position-relative">
+                        <input type="email" class="form-control bg-transparent text-white border-secondary rounded-pill ps-4 pe-5 py-3" placeholder="Enter your email" required style="border: 1px solid rgba(255,255,255,0.2) !important;">
+                        <button type="submit" class="btn btn-premium rounded-circle position-absolute top-50 translate-middle-y hover-target" style="right: 5px; width: 45px; height: 45px; padding: 0;">
+                            <i class="bi bi-send"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="row align-items-center">
+                    <div class="col-md-6 text-md-start mb-3 mb-md-0">
+                        &copy; 2026 <strong>STACKLY</strong>. All Rights Reserved.
+                    </div>
+                    <div class="col-md-6 text-md-end">
+                        <a href="#" class="text-light opacity-75 hover-target me-3">Privacy Policy</a>
+                        <a href="#" class="text-light opacity-75 hover-target">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/aos-init.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tableContainer = document.getElementById('cart-table-container');
+            const tableBody = document.getElementById('cart-table-body');
+            const emptyMessage = document.getElementById('empty-cart-message');
+            const summaryContainer = document.getElementById('cart-summary-container');
+            const subtotalEl = document.getElementById('order-subtotal');
+            const totalEl = document.getElementById('order-total');
+            
+            let rawCartItems = JSON.parse(localStorage.getItem('stackly_cart')) || [];
+            let cartItems = rawCartItems.filter(item => item.price > 0);
+            if (cartItems.length !== rawCartItems.length) {
+                localStorage.setItem('stackly_cart', JSON.stringify(cartItems));
+            }
+            
+            function renderCartPage() {
+                if (cartItems.length === 0) {
+                    tableContainer.style.display = 'none';
+                    summaryContainer.style.display = 'none';
+                    emptyMessage.style.display = 'block';
+                    // Hide the update cart buttons container too
+                    const updateContainer = document.querySelector('.d-flex.justify-content-between.align-items-center.mt-4');
+                    if (updateContainer) updateContainer.style.display = 'none';
+                    return;
+                }
+                
+                tableContainer.style.display = 'block';
+                summaryContainer.style.display = 'block';
+                emptyMessage.style.display = 'none';
+                
+                tableBody.innerHTML = '';
+                let total = 0;
+                
+                cartItems.forEach((item, index) => {
+                    const itemTotal = item.price * (item.quantity || 1);
+                    total += itemTotal;
+                    
+                    tableBody.innerHTML += `
+                        <tr>
+                            <td class="p-4 border-light">
+                                <div class="d-flex align-items-center">
+                                    <img src="${item.img}" alt="${item.name}" class="rounded me-3" style="width: 60px; height: 60px; object-fit: cover;">
+                                    <div>
+                                        <h6 class="mb-0 fw-bold">${item.name}</h6>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="p-4 border-light numbers">${item.actualPrice}</td>
+                            <td class="p-4 border-light">
+                                <input type="number" class="form-control text-center w-50" value="${item.quantity || 1}" min="1" onchange="updateQuantity(${index}, this.value)">
+                            </td>
+                            <td class="p-4 border-light numbers fw-bold">₹${itemTotal.toFixed(2)}</td>
+                            <td class="p-4 border-light text-end">
+                                <a href="#" onclick="removeItem(${index}); event.preventDefault();" class="text-danger"><i class="bi bi-trash"></i></a>
+                            </td>
+                        </tr>
+                    `;
+                });
+                
+                subtotalEl.innerText = '₹' + total.toFixed(2);
+                
+                // Add flat rate shipping ₹25 if checked
+                const flatRate = document.getElementById('flatRate');
+                let finalTotal = total;
+                if (flatRate && flatRate.checked) {
+                    finalTotal += 25.00;
+                }
+                totalEl.innerText = '₹' + finalTotal.toFixed(2);
+            }
+            
+            window.updateQuantity = function(index, qty) {
+                cartItems[index].quantity = parseInt(qty) || 1;
+                localStorage.setItem('stackly_cart', JSON.stringify(cartItems));
+                renderCartPage();
+            };
+            
+            window.removeItem = function(index) {
+                cartItems.splice(index, 1);
+                localStorage.setItem('stackly_cart', JSON.stringify(cartItems));
+                renderCartPage();
+            };
+            
+            // Re-render when shipping method changes
+            document.querySelectorAll('input[name="shipping"]').forEach(radio => {
+                radio.addEventListener('change', renderCartPage);
+            });
+            
+            renderCartPage();
+        });
+    </script>
+</body>
+</html>

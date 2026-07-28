@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Dashboard - STACKLY</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f6f9;
+            overflow-x: hidden;
+        }
+        
+        /* Sidebar Styling */
+        #sidebar {
+            width: 250px;
+            height: 100vh;
+            background-color: #151a28;
+            color: #fff;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1040;
+            transition: all 0.3s ease;
+        }
+        
+        .sidebar-brand {
+            padding: 1.5rem;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .sidebar-menu {
+            padding: 1rem 0;
+            list-style: none;
+            margin: 0;
+        }
+        
+        .sidebar-menu li {
+            padding: 0.5rem 1rem;
+        }
+        
+        .sidebar-menu a {
+            color: #8a94a6;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            padding: 0.8rem 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .sidebar-menu a:hover, .sidebar-menu a.active {
+            background-color: #1e2536;
+            color: #fbb315;
+        }
+        
+        .sidebar-menu a i {
+            margin-right: 15px;
+            font-size: 1.2rem;
+        }
+        
+        /* Main Content Styling */
+        #main-content {
+            margin-left: 250px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease;
+        }
+        
+        /* Navbar Styling */
+        .dashboard-nav {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1030;
+        }
+        
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #151a28;
+            cursor: pointer;
+        }
+        
+        .content-section {
+            display: none;
+            padding: 2rem;
+            flex-grow: 1;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+        
+        .content-section.active-section {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 991.98px) {
+            #sidebar {
+                transform: translateX(-100%);
+            }
+            #sidebar.show-sidebar {
+                transform: translateX(0);
+            }
+            #main-content {
+                margin-left: 0;
+            }
+            .menu-toggle {
+                display: block;
+            }
+            .dashboard-nav {
+                padding: 1rem;
+            }
+            .sidebar-overlay {
+                display: none;
+                position: fixed;
+                top: 0; left: 0; right: 0; bottom: 0;
+                background: rgba(0,0,0,0.5);
+                z-index: 1035;
+            }
+            .sidebar-overlay.show {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Mobile Overlay -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- Sidebar -->
+    <nav id="sidebar">
+        <div class="sidebar-brand">
+            <a href="user_dashboard.html">
+                <img src="../images/logo.webp" alt="Stackly Logo" style="height: 40px;">
+            </a>
+        </div>
+        <ul class="sidebar-menu">
+            <li>
+                <a href="#" class="sidebar-link active" data-target="user-overview">
+                    <i class="bi bi-person-circle"></i> My Dashboard
+                </a>
+            </li>
+            <li>
+                <a href="#" class="sidebar-link" data-target="track-projects">
+                    <i class="bi bi-geo-alt"></i> Track Projects
+                </a>
+            </li>
+            <li>
+                <a href="#" class="sidebar-link" data-target="order-history">
+                    <i class="bi bi-receipt"></i> Order History
+                </a>
+            </li>
+            <li>
+                <a href="#" class="sidebar-link" data-target="support">
+                    <i class="bi bi-headset"></i> Support
+                </a>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <div id="main-content">
+        <!-- Navbar -->
+        <header class="dashboard-nav">
+            <div class="d-flex align-items-center">
+                <button class="menu-toggle me-3" id="menuToggle">
+                    <i class="bi bi-list"></i>
+                </button>
+                <h5 class="mb-0 fw-bold d-none d-sm-block">Welcome back User</h5>
+            </div>
+            
+            <div class="ms-auto d-flex align-items-center">
+                <div class="me-3">
+                    <span class="d-flex align-items-center text-dark">
+                        <strong id="navbarUserEmail">John Client</strong>
+                    </span>
+                </div>
+                <a href="login.html" class="btn btn-outline-danger btn-sm rounded-pill px-3 fw-medium">
+                    <i class="bi bi-box-arrow-right"></i><span class="d-none d-sm-inline ms-1">Logout</span>
+                </a>
+            </div>
+        </header>
+
+        <!-- Dynamic Sections -->
+        
+        <!-- Overview Section -->
+        <section id="user-overview" class="content-section active-section">
+            <h2 class="fw-bold mb-4">Welcome back User</h2>
+            
+            <div class="row g-4 mb-4">
+                <div class="col-12 col-md-6">
+                    <div class="card border-0 shadow-sm rounded-3 h-100">
+                        <div class="card-body p-4">
+                            <h5 class="fw-bold mb-4">Active Project Status</h5>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span class="fw-medium">Custom Denim Batch #902</span>
+                                <span class="text-primary fw-bold">65%</span>
+                            </div>
+                            <div class="progress mb-4" style="height: 10px;">
+                                <div class="progress-bar bg-primary" role="progressbar" style="width: 65%;" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            
+                            <div class="d-flex justify-content-between mb-2">
+                                <span class="fw-medium">Cotton Printing Lot A</span>
+                                <span class="text-success fw-bold">90%</span>
+                            </div>
+                            <div class="progress mb-4" style="height: 10px;">
+                                <div class="progress-bar bg-success" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-12 col-md-6">
+                    <div class="card border-0 shadow-sm rounded-3 h-100">
+                        <div class="card-body p-4 text-center d-flex flex-column justify-content-center">
+                            <i class="bi bi-headset text-muted mb-3" style="font-size: 3rem;"></i>
+                            <h5 class="fw-bold">Need Assistance?</h5>
+                            <p class="text-muted mb-4">Your dedicated account manager is available.</p>
+                            <button class="btn btn-dark w-100 py-2">Contact Support</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card border-0 shadow-sm rounded-3">
+                <div class="card-header bg-white border-0 pt-4 pb-0 px-4">
+                    <h5 class="fw-bold">Recent Invoices</h5>
+                </div>
+                <div class="card-body p-4">
+                    <div class="table-responsive">
+                        <table class="table table-hover align-middle mb-0">
+                            <tbody>
+                                <tr>
+                                    <td><i class="bi bi-file-earmark-pdf text-danger fs-4"></i></td>
+                                    <td><strong>INV-2026-081</strong><br><small class="text-muted">Aug 15, 2026</small></td>
+                                    <td class="text-end fw-bold">$4,500.00</td>
+                                    <td class="text-end"><span class="badge bg-success">Paid</span></td>
+                                    <td class="text-end"><button class="btn btn-sm btn-outline-secondary">Download</button></td>
+                                </tr>
+                                <tr>
+                                    <td><i class="bi bi-file-earmark-pdf text-danger fs-4"></i></td>
+                                    <td><strong>INV-2026-074</strong><br><small class="text-muted">Jul 02, 2026</small></td>
+                                    <td class="text-end fw-bold">$12,250.00</td>
+                                    <td class="text-end"><span class="badge bg-success">Paid</span></td>
+                                    <td class="text-end"><button class="btn btn-sm btn-outline-secondary">Download</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Track Projects Section -->
+        <section id="track-projects" class="content-section">
+            <h2 class="fw-bold mb-4">Track Projects</h2>
+            
+            <div class="card border-0 shadow-sm rounded-3 mb-4">
+                <div class="card-body p-4">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h5 class="fw-bold mb-0">Order #ORD-982</h5>
+                        <span class="badge bg-primary">In Production</span>
+                    </div>
+                    
+                    <div class="position-relative m-4">
+                        <div class="progress" style="height: 3px;">
+                            <div class="progress-bar bg-primary" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <div class="d-flex justify-content-between position-absolute w-100 top-50 translate-middle-y">
+                            <button type="button" class="btn btn-primary btn-sm rounded-circle d-flex align-items-center justify-content-center" style="width: 2rem; height: 2rem; border: 2px solid white;"><i class="bi bi-check text-white"></i></button>
+                            <button type="button" class="btn btn-primary btn-sm rounded-circle d-flex align-items-center justify-content-center" style="width: 2rem; height: 2rem; border: 2px solid white;"><i class="bi bi-check text-white"></i></button>
+                            <button type="button" class="btn btn-primary btn-sm rounded-circle d-flex align-items-center justify-content-center" style="width: 2rem; height: 2rem; border: 2px solid white;"><i class="bi bi-circle-fill text-white" style="font-size: 0.5rem;"></i></button>
+                            <button type="button" class="btn btn-light border btn-sm rounded-circle d-flex align-items-center justify-content-center" style="width: 2rem; height: 2rem; border: 2px solid white;"></button>
+                        </div>
+                    </div>
+                    
+                    <div class="row mt-4 text-center text-sm-start">
+                        <div class="col-6 col-sm-3 mb-2 mb-sm-0">
+                            <small class="fw-bold text-dark d-block">Order Placed</small>
+                            <small class="text-muted">Aug 10, 2026</small>
+                        </div>
+                        <div class="col-6 col-sm-3 mb-2 mb-sm-0 text-sm-center">
+                            <small class="fw-bold text-dark d-block">Material Prep</small>
+                            <small class="text-muted">Aug 12, 2026</small>
+                        </div>
+                        <div class="col-6 col-sm-3 text-sm-center">
+                            <small class="fw-bold text-primary d-block">Manufacturing</small>
+                            <small class="text-muted">In Progress</small>
+                        </div>
+                        <div class="col-6 col-sm-3 text-sm-end">
+                            <small class="fw-bold text-muted d-block">Shipping</small>
+                            <small class="text-muted">Pending</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card border-0 shadow-sm rounded-3">
+                <div class="card-body p-4">
+                    <h5 class="fw-bold mb-3">Project Updates</h5>
+                    <div class="d-flex align-items-start mb-3 pb-3 border-bottom">
+                        <div class="bg-primary bg-opacity-10 text-primary rounded-circle p-2 me-3">
+                            <i class="bi bi-scissors fs-5"></i>
+                        </div>
+                        <div>
+                            <h6 class="mb-1 fw-bold">Fabric Cutting Started</h6>
+                            <p class="text-muted mb-0 small">The raw denim material has been approved and the cutting phase has begun.</p>
+                            <small class="text-muted">Today, 09:30 AM</small>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-start">
+                        <div class="bg-success bg-opacity-10 text-success rounded-circle p-2 me-3">
+                            <i class="bi bi-check-circle fs-5"></i>
+                        </div>
+                        <div>
+                            <h6 class="mb-1 fw-bold">Quality Inspection Passed</h6>
+                            <p class="text-muted mb-0 small">Raw materials passed our strict quality standard check.</p>
+                            <small class="text-muted">Yesterday, 14:15 PM</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Order History Section -->
+        <section id="order-history" class="content-section">
+            <h2 class="fw-bold mb-4">Order History</h2>
+            
+            <div class="card border-0 shadow-sm rounded-3">
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table table-hover mb-0 align-middle">
+                            <thead class="table-light">
+                                <tr>
+                                    <th class="py-3 px-4">Order ID</th>
+                                    <th class="py-3">Date</th>
+                                    <th class="py-3">Items</th>
+                                    <th class="py-3">Status</th>
+                                    <th class="py-3 text-end px-4">Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="py-3 px-4 fw-bold">#ORD-982</td>
+                                    <td class="py-3 text-muted">Aug 10, 2026</td>
+                                    <td class="py-3">Custom Denim Rolls (x50)</td>
+                                    <td class="py-3"><span class="badge bg-primary">In Production</span></td>
+                                    <td class="py-3 text-end px-4 fw-bold">$4,500.00</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3 px-4 fw-bold">#ORD-845</td>
+                                    <td class="py-3 text-muted">Jun 25, 2026</td>
+                                    <td class="py-3">Linen Weaving (x120)</td>
+                                    <td class="py-3"><span class="badge bg-success">Delivered</span></td>
+                                    <td class="py-3 text-end px-4 fw-bold">$12,250.00</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Support Section -->
+        <section id="support" class="content-section">
+            <h2 class="fw-bold mb-4">Support Hub</h2>
+            <div class="row">
+                <div class="col-12 col-md-6 mb-4">
+                    <div class="card border-0 shadow-sm rounded-3 h-100">
+                        <div class="card-body p-4 text-center">
+                            <i class="bi bi-chat-dots text-primary mb-3" style="font-size: 3rem;"></i>
+                            <h5 class="fw-bold">Live Chat</h5>
+                            <p class="text-muted">Chat directly with your account manager.</p>
+                            <button class="btn btn-outline-primary mt-2">Start Chat</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 mb-4">
+                    <div class="card border-0 shadow-sm rounded-3 h-100">
+                        <div class="card-body p-4 text-center">
+                            <i class="bi bi-envelope text-success mb-3" style="font-size: 3rem;"></i>
+                            <h5 class="fw-bold">Email Ticket</h5>
+                            <p class="text-muted">Submit an official support ticket.</p>
+                            <button class="btn btn-outline-success mt-2">Open Ticket</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Sidebar Navigation Logic
+            const sidebarLinks = document.querySelectorAll('.sidebar-link');
+            const contentSections = document.querySelectorAll('.content-section');
+            
+            sidebarLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Remove active class from all links
+                    sidebarLinks.forEach(l => l.classList.remove('active'));
+                    // Add active class to clicked link
+                    this.classList.add('active');
+                    
+                    // Hide all sections
+                    contentSections.forEach(section => section.classList.remove('active-section'));
+                    
+                    // Show targeted section
+                    const targetId = this.getAttribute('data-target');
+                    document.getElementById(targetId).classList.add('active-section');
+                    
+                    // Close sidebar on mobile after clicking
+                    if (window.innerWidth < 992) {
+                        document.getElementById('sidebar').classList.remove('show-sidebar');
+                        document.getElementById('sidebarOverlay').classList.remove('show');
+                    }
+                });
+            });
+            
+            // Mobile Menu Toggle
+            const menuToggle = document.getElementById('menuToggle');
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebarOverlay');
+            
+            menuToggle.addEventListener('click', function() {
+                sidebar.classList.add('show-sidebar');
+                overlay.classList.add('show');
+            });
+            
+            overlay.addEventListener('click', function() {
+                sidebar.classList.remove('show-sidebar');
+                overlay.classList.remove('show');
+            });
+            
+            // Load Email from localStorage
+            const userEmail = localStorage.getItem('userEmail');
+            if (userEmail) {
+                const emailElement = document.getElementById('navbarUserEmail');
+                if (emailElement) {
+                    emailElement.textContent = userEmail;
+                }
+            }
+        });
+    </script>
+</body>
+</html>
