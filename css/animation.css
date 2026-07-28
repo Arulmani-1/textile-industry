@@ -192,3 +192,37 @@
 @keyframes spin {
   100% { transform: rotate(360deg); }
 }
+
+/* Wave Jump Animation */
+@keyframes waveJump {
+    0%, 40%, 100% {
+        transform: translateY(0);
+    }
+    20% {
+        transform: translateY(-20px);
+    }
+}
+
+.wave-text span {
+    display: inline-block;
+    animation: waveJump 1.5s infinite ease-in-out;
+}
+
+.wave-text span:nth-child(1) { animation-delay: 0s; }
+.wave-text span:nth-child(2) { animation-delay: 0.15s; }
+.wave-text span:nth-child(3) { animation-delay: 0.3s; }
+
+/* Slide Left Right Animation */
+@keyframes slideLeftRight {
+    0%, 100% {
+        transform: translateX(-15px);
+    }
+    50% {
+        transform: translateX(15px);
+    }
+}
+
+.slide-text {
+    display: inline-block;
+    animation: slideLeftRight 3s infinite ease-in-out;
+}

@@ -814,3 +814,21 @@ img {
 .service-card-premium.active-dark .read-more {
     color: #79cca3;
 }
+
+/* 404 Page Buttons */
+.btn-404 {
+    background-color: #ffb800;
+    color: #fff;
+    font-weight: 700;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.05rem;
+    transition: all 0.3s ease;
+}
+
+.btn-404:hover {
+    background-color: #e6a600;
+    color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(255, 184, 0, 0.4);
+}
