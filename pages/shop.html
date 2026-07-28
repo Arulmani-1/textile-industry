@@ -1,21 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Store - STACKLY</title>
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
+
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/animation.css">
     <link rel="stylesheet" href="../css/responsive.css">
 </head>
+
 <body style="background: var(--bg-color);">
     <div class="preloader">
         <h2 class="preloader-logo"><img src="../images/logo.webp" alt="Stackly Logo" style="height: 65px;"></h2>
@@ -23,10 +27,12 @@
         <div class="loading-percentage numbers">0%</div>
     </div>
 
-        <nav class="navbar navbar-expand-lg navbar-premium sticky">
+    <nav class="navbar navbar-expand-lg navbar-premium sticky">
         <div class="container">
-            <a class="navbar-brand" href="../index.html"><img src="../images/logo.webp" alt="Stackly Logo" style="height: 65px;"></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <a class="navbar-brand" href="../index.html"><img src="../images/logo.webp" alt="Stackly Logo"
+                    style="height: 65px;"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="bi bi-list text-white fs-1"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -35,10 +41,12 @@
                         <a class="nav-link" href="../index.html">Home</a>
                     </li>
                     <li class="nav-item dropdown hover-target">
-                        <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="error404.html" id="aboutDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
                             About
                         </a>
-                        <ul class="dropdown-menu glass-card p-2" aria-labelledby="aboutDropdown" style="background: rgba(15, 23, 42, 0.95);">
+                        <ul class="dropdown-menu glass-card p-2" aria-labelledby="aboutDropdown"
+                            style="background: rgba(15, 23, 42, 0.95);">
                             <li><a class="dropdown-item text-white hover-target" href="about.html">About Us</a></li>
                             <li><a class="dropdown-item text-white hover-target" href="team.html">Our Team</a></li>
                             <li><a class="dropdown-item text-white hover-target" href="faq.html">FAQ</a></li>
@@ -49,10 +57,12 @@
                         <a class="nav-link" href="services.html">Services</a>
                     </li>
                     <li class="nav-item dropdown hover-target">
-                        <a class="nav-link dropdown-toggle" href="#" id="storeDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="error404.html" id="storeDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
                             Store
                         </a>
-                        <ul class="dropdown-menu glass-card p-2" aria-labelledby="storeDropdown" style="background: rgba(15, 23, 42, 0.95);">
+                        <ul class="dropdown-menu glass-card p-2" aria-labelledby="storeDropdown"
+                            style="background: rgba(15, 23, 42, 0.95);">
                             <li><a class="dropdown-item text-white hover-target" href="shop.html">Shop</a></li>
                             <li><a class="dropdown-item text-white hover-target" href="cart.html">Cart</a></li>
                             <li><a class="dropdown-item text-white hover-target" href="checkout.html">Checkout</a></li>
@@ -92,67 +102,117 @@
                 <!-- Sidebar -->
                 <div class="col-lg-3" style="background-color: #f7f5f2; padding: 40px 30px;">
                     <!-- Search -->
-                    <div class="position-relative mb-5">
-                        <input type="text" class="form-control border-0 bg-white shadow-sm" placeholder="Search products..." style="padding: 12px 20px; font-size: 0.85rem; border-radius: 0;">
-                        <i class="bi bi-search position-absolute text-muted" style="right: 15px; top: 50%; transform: translateY(-50%); font-size: 0.85rem; cursor: pointer;"></i>
-                    </div>
+                    <form class="position-relative mb-5" action="error404.html" method="GET">
+                        <input type="text" class="form-control border-0 bg-white shadow-sm"
+                            placeholder="Search products..."
+                            style="padding: 12px 20px; font-size: 0.85rem; border-radius: 0;">
+                        <button type="submit" class="border-0 bg-transparent position-absolute text-muted hover-target"
+                            style="right: 15px; top: 50%; transform: translateY(-50%); font-size: 0.85rem; cursor: pointer; padding: 0;">
+                            <i class="bi bi-search"></i>
+                        </button>
+                    </form>
 
                     <!-- Cart -->
                     <div class="mb-5">
-                        <h6 class="mb-3" style="color: #8c857b; font-family: 'Playfair Display', serif; font-size: 0.9rem; letter-spacing: 1px;">// CART</h6>
-                        
+                        <h6 class="mb-3"
+                            style="color: #8c857b; font-family: 'Playfair Display', serif; font-size: 0.9rem; letter-spacing: 1px;">
+                            // CART</h6>
+
                         <div id="cart-items-container">
                             <!-- Items will be populated dynamically -->
                         </div>
-                        
+
                         <hr style="border-color: #ddd;" class="my-3">
-                        
+
                         <div class="d-flex justify-content-center mb-3 text-muted" style="font-size: 0.8rem;">
                             Subtotal: <span class="text-dark fw-bold ms-1" id="cart-subtotal">₹ 0.00</span>
                         </div>
-                        
+
                         <div class="d-flex flex-column gap-2 px-3">
-                            <a href="cart.html" class="btn border-0 text-white rounded-0 py-2 hover-target" style="background-color: #a3654b; font-size: 0.75rem; font-weight: 500;">View cart</a>
-                            <a href="checkout.html" class="btn border-0 rounded-0 py-2 hover-target" style="background-color: #dfd7cc; font-size: 0.75rem; font-weight: 500; color: #5a5a5a;">Checkout</a>
+                            <a href="cart.html" class="btn border-0 text-white rounded-0 py-2 hover-target"
+                                style="background-color: #a3654b; font-size: 0.75rem; font-weight: 500;">View cart</a>
+                            <a href="checkout.html" class="btn border-0 rounded-0 py-2 hover-target"
+                                style="background-color: #dfd7cc; font-size: 0.75rem; font-weight: 500; color: #5a5a5a;">Checkout</a>
                         </div>
                     </div>
 
                     <!-- Filter by Price -->
                     <div class="mb-5">
-                        <h6 class="mb-3" style="color: #8c857b; font-family: 'Playfair Display', serif; font-size: 0.9rem; letter-spacing: 1px;">// FILTER BY PRICE</h6>
+                        <h6 class="mb-3"
+                            style="color: #8c857b; font-family: 'Playfair Display', serif; font-size: 0.9rem; letter-spacing: 1px;">
+                            // FILTER BY PRICE</h6>
                         <input type="range" class="form-range" min="210" max="680" id="priceRange" style="height: 3px;">
-                        <div class="d-flex justify-content-center text-dark small mt-2 mb-3 fw-medium" style="font-size: 0.8rem;">
+                        <div class="d-flex justify-content-center text-dark small mt-2 mb-3 fw-medium"
+                            style="font-size: 0.8rem;">
                             Price: ₹210 — ₹680
                         </div>
                         <div class="text-center">
-                            <button class="btn btn-sm text-dark border-0 rounded-0 w-50" style="background-color: #c4b9b0; font-size: 0.8rem;">Filter</button>
+                            <button class="btn btn-sm text-dark border-0 rounded-0 w-50"
+                                style="background-color: #c4b9b0; font-size: 0.8rem;"
+                                onclick="window.location.href='error404.html'">Filter</button>
                         </div>
                     </div>
 
                     <!-- Product Categories -->
                     <div class="mb-5">
-                        <h6 class="mb-3" style="color: #8c857b; font-family: 'Playfair Display', serif; font-size: 0.9rem; letter-spacing: 1px;">// PRODUCT CATEGORIES</h6>
+                        <h6 class="mb-3"
+                            style="color: #8c857b; font-family: 'Playfair Display', serif; font-size: 0.9rem; letter-spacing: 1px;">
+                            // PRODUCT CATEGORIES</h6>
                         <ul class="list-unstyled mb-0" style="font-size: 0.8rem;">
-                            <li class="mb-2"><a href="#" class="text-muted text-decoration-none hover-target"><i class="bi bi-caret-right-fill text-danger" style="font-size: 0.5rem; opacity: 0.7;"></i> Company (2)</a></li>
-                            <li class="mb-2"><a href="#" class="text-muted text-decoration-none hover-target"><i class="bi bi-caret-right-fill text-danger" style="font-size: 0.5rem; opacity: 0.7;"></i> Experts (2)</a></li>
-                            <li class="mb-2"><a href="#" class="text-muted text-decoration-none hover-target"><i class="bi bi-caret-right-fill text-danger" style="font-size: 0.5rem; opacity: 0.7;"></i> Our services (2)</a></li>
-                            <li class="mb-2"><a href="#" class="text-muted text-decoration-none hover-target"><i class="bi bi-caret-right-fill text-danger" style="font-size: 0.5rem; opacity: 0.7;"></i> Products (2)</a></li>
-                            <li class="mb-2"><a href="#" class="text-muted text-decoration-none hover-target"><i class="bi bi-caret-right-fill text-danger" style="font-size: 0.5rem; opacity: 0.7;"></i> Strategy (8)</a></li>
-                            <li class="mb-2"><a href="#" class="text-muted text-decoration-none hover-target"><i class="bi bi-caret-right-fill text-danger" style="font-size: 0.5rem; opacity: 0.7;"></i> Technologies (3)</a></li>
+                            <li class="mb-2"><a href="error404.html"
+                                    class="text-muted text-decoration-none hover-target"><i
+                                        class="bi bi-caret-right-fill text-danger"
+                                        style="font-size: 0.5rem; opacity: 0.7;"></i> Company (2)</a></li>
+                            <li class="mb-2"><a href="error404.html"
+                                    class="text-muted text-decoration-none hover-target"><i
+                                        class="bi bi-caret-right-fill text-danger"
+                                        style="font-size: 0.5rem; opacity: 0.7;"></i> Experts (2)</a></li>
+                            <li class="mb-2"><a href="error404.html"
+                                    class="text-muted text-decoration-none hover-target"><i
+                                        class="bi bi-caret-right-fill text-danger"
+                                        style="font-size: 0.5rem; opacity: 0.7;"></i> Our services (2)</a></li>
+                            <li class="mb-2"><a href="error404.html"
+                                    class="text-muted text-decoration-none hover-target"><i
+                                        class="bi bi-caret-right-fill text-danger"
+                                        style="font-size: 0.5rem; opacity: 0.7;"></i> Products (2)</a></li>
+                            <li class="mb-2"><a href="error404.html"
+                                    class="text-muted text-decoration-none hover-target"><i
+                                        class="bi bi-caret-right-fill text-danger"
+                                        style="font-size: 0.5rem; opacity: 0.7;"></i> Strategy (8)</a></li>
+                            <li class="mb-2"><a href="error404.html"
+                                    class="text-muted text-decoration-none hover-target"><i
+                                        class="bi bi-caret-right-fill text-danger"
+                                        style="font-size: 0.5rem; opacity: 0.7;"></i> Technologies (3)</a></li>
                         </ul>
                     </div>
 
                     <!-- Product Tags -->
                     <div>
-                        <h6 class="mb-3" style="color: #8c857b; font-family: 'Playfair Display', serif; font-size: 0.9rem; letter-spacing: 1px;">// PRODUCT TAGS</h6>
+                        <h6 class="mb-3"
+                            style="color: #8c857b; font-family: 'Playfair Display', serif; font-size: 0.9rem; letter-spacing: 1px;">
+                            // PRODUCT TAGS</h6>
                         <div class="d-flex flex-wrap gap-2">
-                            <a href="#" class="btn btn-outline-secondary btn-sm bg-white border-light text-muted" style="font-size: 0.65rem; border-radius: 0; padding: 4px 8px;">#delivery</a>
-                            <a href="#" class="btn btn-outline-secondary btn-sm bg-white border-light text-muted" style="font-size: 0.65rem; border-radius: 0; padding: 4px 8px;">#experts</a>
-                            <a href="#" class="btn btn-outline-secondary btn-sm bg-white border-light text-muted" style="font-size: 0.65rem; border-radius: 0; padding: 4px 8px;">#feedback</a>
-                            <a href="#" class="btn btn-outline-secondary btn-sm bg-white border-light text-muted" style="font-size: 0.65rem; border-radius: 0; padding: 4px 8px;">#info</a>
-                            <a href="#" class="btn btn-outline-secondary btn-sm bg-white border-light text-muted" style="font-size: 0.65rem; border-radius: 0; padding: 4px 8px;">#services</a>
-                            <a href="#" class="btn btn-outline-secondary btn-sm bg-white border-light text-muted" style="font-size: 0.65rem; border-radius: 0; padding: 4px 8px;">#strategy</a>
-                            <a href="#" class="btn btn-outline-secondary btn-sm bg-white border-light text-muted" style="font-size: 0.65rem; border-radius: 0; padding: 4px 8px;">#technology</a>
+                            <a href="error404.html"
+                                class="btn btn-outline-secondary btn-sm bg-white border-light text-muted"
+                                style="font-size: 0.65rem; border-radius: 0; padding: 4px 8px;">#delivery</a>
+                            <a href="error404.html"
+                                class="btn btn-outline-secondary btn-sm bg-white border-light text-muted"
+                                style="font-size: 0.65rem; border-radius: 0; padding: 4px 8px;">#experts</a>
+                            <a href="error404.html"
+                                class="btn btn-outline-secondary btn-sm bg-white border-light text-muted"
+                                style="font-size: 0.65rem; border-radius: 0; padding: 4px 8px;">#feedback</a>
+                            <a href="error404.html"
+                                class="btn btn-outline-secondary btn-sm bg-white border-light text-muted"
+                                style="font-size: 0.65rem; border-radius: 0; padding: 4px 8px;">#info</a>
+                            <a href="error404.html"
+                                class="btn btn-outline-secondary btn-sm bg-white border-light text-muted"
+                                style="font-size: 0.65rem; border-radius: 0; padding: 4px 8px;">#services</a>
+                            <a href="error404.html"
+                                class="btn btn-outline-secondary btn-sm bg-white border-light text-muted"
+                                style="font-size: 0.65rem; border-radius: 0; padding: 4px 8px;">#strategy</a>
+                            <a href="error404.html"
+                                class="btn btn-outline-secondary btn-sm bg-white border-light text-muted"
+                                style="font-size: 0.65rem; border-radius: 0; padding: 4px 8px;">#technology</a>
                         </div>
                     </div>
                 </div>
@@ -166,19 +226,25 @@
                             overflow: hidden;
                             cursor: pointer;
                         }
+
                         .product-img-wrapper .hover-overlay {
                             position: absolute;
-                            top: 0; left: 0; width: 100%; height: 100%;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
                             display: flex;
                             align-items: center;
                             justify-content: center;
-                            background: rgba(255,255,255,0.1);
+                            background: rgba(255, 255, 255, 0.1);
                             opacity: 0;
                             transition: opacity 0.3s ease;
                         }
+
                         .product-img-wrapper:hover .hover-overlay {
                             opacity: 1;
                         }
+
                         .hover-icon-circle {
                             width: 50px;
                             height: 50px;
@@ -188,35 +254,33 @@
                             align-items: center;
                             justify-content: center;
                             color: #333;
-                            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+                            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
                             transform: scale(0.8);
                             transition: transform 0.3s ease;
                         }
+
                         .product-img-wrapper:hover .hover-icon-circle {
                             transform: scale(1);
                         }
+
                         .hover-icon-circle.added {
                             background-color: #1a2a3a;
                             color: white;
                         }
                     </style>
-                    <div class="d-flex justify-content-between align-items-center mb-4 pb-2" style="border-bottom: 1px solid #eee;">
+                    <div class="d-flex justify-content-between align-items-center mb-4 pb-2"
+                        style="border-bottom: 1px solid #eee;">
                         <p class="text-muted mb-0" style="font-size: 0.8rem;">Showing all 9 results</p>
-                        <select class="form-select w-auto rounded-0 border-dark" style="font-size: 0.8rem; padding: 6px 30px 6px 12px; height: auto;">
-                            <option selected>Default sorting</option>
-                            <option value="1">Sort by popularity</option>
-                            <option value="2">Sort by average rating</option>
-                            <option value="3">Sort by latest</option>
-                            <option value="4">Sort by price: low to high</option>
-                            <option value="5">Sort by price: high to low</option>
-                        </select>
+
                     </div>
 
-                    <div class="row g-4">
+                    <div class="row g-4" id="productGrid">
                         <!-- Product 1 -->
                         <div class="col-md-4 col-sm-6 text-start" data-aos="fade-up" data-aos-delay="100">
-                            <div class="position-relative mb-2 product-img-wrapper" data-name="Cocoa Tailored Elegance" data-price="₹360.00" data-img="../images/project_1.webp">
-                                <img src="../images/project_1.webp" alt="Cocoa Tailored Elegance" class="w-100 img-fluid" style="object-fit: cover; height: 320px;">
+                            <div class="position-relative mb-2 product-img-wrapper" data-name="Cocoa Tailored Elegance"
+                                data-price="₹360.00" data-img="../images/project_1.webp">
+                                <img src="../images/project_1.webp" alt="Cocoa Tailored Elegance"
+                                    class="w-100 img-fluid" style="object-fit: cover; height: 320px;">
                                 <div class="hover-overlay">
                                     <div class="hover-icon-circle">
                                         <i class="bi bi-bag fs-5"></i>
@@ -224,34 +288,48 @@
                                 </div>
                             </div>
                             <div class="text-warning small mb-1" style="font-size: 0.65rem; color: #d4c1b0 !important;">
-                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                    class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                    class="bi bi-star-fill"></i>
                             </div>
-                            <h6 class="mb-1" style="font-family: 'Playfair Display', serif; font-size: 0.95rem; color: #4a5568;">Cocoa Tailored Elegance</h6>
+                            <h6 class="mb-1"
+                                style="font-family: 'Playfair Display', serif; font-size: 0.95rem; color: #4a5568;">
+                                Cocoa Tailored Elegance</h6>
                             <p class="text-muted mb-0" style="font-size: 0.85rem;">₹360.00</p>
                         </div>
-                        
+
                         <!-- Product 2 -->
                         <div class="col-md-4 col-sm-6 text-start" data-aos="fade-up" data-aos-delay="200">
                             <div class="position-relative mb-2 product-img-wrapper">
-                                <img src="../images/project_2.webp" alt="Ivory Minimal Suit" class="w-100 img-fluid" style="object-fit: cover; height: 320px;">
+                                <img src="../images/project_2.webp" alt="Ivory Minimal Suit" class="w-100 img-fluid"
+                                    style="object-fit: cover; height: 320px;">
                                 <div class="hover-overlay">
                                     <div class="hover-icon-circle">
                                         <i class="bi bi-bag fs-5"></i>
                                     </div>
                                 </div>
-                                <span class="position-absolute top-0 end-0 m-3 rounded-circle text-white d-flex align-items-center justify-content-center fw-bold" style="width: 32px; height: 32px; font-size: 0.55rem; background-color: #b78a6c;">-SALE</span>
+                                <span
+                                    class="position-absolute top-0 end-0 m-3 rounded-circle text-white d-flex align-items-center justify-content-center fw-bold"
+                                    style="width: 32px; height: 32px; font-size: 0.55rem; background-color: #b78a6c;">-SALE</span>
                             </div>
                             <div class="text-warning small mb-1" style="font-size: 0.65rem; color: #d4c1b0 !important;">
-                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                    class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                    class="bi bi-star-fill"></i>
                             </div>
-                            <h6 class="mb-1" style="font-family: 'Playfair Display', serif; font-size: 0.95rem; color: #4a5568;">Ivory Minimal Suit</h6>
-                            <p class="mb-0" style="font-size: 0.85rem;"><span class="text-muted text-decoration-line-through me-2">₹260.00</span><span style="color: #b78a6c;">₹240.00</span></p>
+                            <h6 class="mb-1"
+                                style="font-family: 'Playfair Display', serif; font-size: 0.95rem; color: #4a5568;">
+                                Ivory Minimal Suit</h6>
+                            <p class="mb-0" style="font-size: 0.85rem;"><span
+                                    class="text-muted text-decoration-line-through me-2">₹260.00</span><span
+                                    style="color: #b78a6c;">₹240.00</span></p>
                         </div>
 
                         <!-- Product 3 -->
                         <div class="col-md-4 col-sm-6 text-start" data-aos="fade-up" data-aos-delay="300">
                             <div class="position-relative mb-2 product-img-wrapper">
-                                <img src="../images/project_3.webp" alt="Golden Sand Ensemble" class="w-100 img-fluid" style="object-fit: cover; height: 320px;">
+                                <img src="../images/project_3.webp" alt="Golden Sand Ensemble" class="w-100 img-fluid"
+                                    style="object-fit: cover; height: 320px;">
                                 <div class="hover-overlay">
                                     <div class="hover-icon-circle">
                                         <i class="bi bi-bag fs-5"></i>
@@ -259,16 +337,21 @@
                                 </div>
                             </div>
                             <div class="text-warning small mb-1" style="font-size: 0.65rem; color: #d4c1b0 !important;">
-                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                    class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                    class="bi bi-star-fill"></i>
                             </div>
-                            <h6 class="mb-1" style="font-family: 'Playfair Display', serif; font-size: 0.95rem; color: #4a5568;">Golden Sand Ensemble</h6>
+                            <h6 class="mb-1"
+                                style="font-family: 'Playfair Display', serif; font-size: 0.95rem; color: #4a5568;">
+                                Golden Sand Ensemble</h6>
                             <p class="text-muted mb-0" style="font-size: 0.85rem;">₹210.00</p>
                         </div>
 
                         <!-- Product 4 -->
                         <div class="col-md-4 col-sm-6 text-start" data-aos="fade-up" data-aos-delay="400">
                             <div class="position-relative mb-2 product-img-wrapper">
-                                <img src="../images/project_4.webp" alt="Soft Beige Classic" class="w-100 img-fluid" style="object-fit: cover; height: 320px;">
+                                <img src="../images/project_4.webp" alt="Soft Beige Classic" class="w-100 img-fluid"
+                                    style="object-fit: cover; height: 320px;">
                                 <div class="hover-overlay">
                                     <div class="hover-icon-circle">
                                         <i class="bi bi-bag fs-5"></i>
@@ -276,16 +359,21 @@
                                 </div>
                             </div>
                             <div class="text-warning small mb-1" style="font-size: 0.65rem; color: #d4c1b0 !important;">
-                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill text-muted opacity-25"></i>
+                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                    class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                    class="bi bi-star-fill text-muted opacity-25"></i>
                             </div>
-                            <h6 class="mb-1" style="font-family: 'Playfair Display', serif; font-size: 0.95rem; color: #4a5568;">Soft Beige Classic</h6>
+                            <h6 class="mb-1"
+                                style="font-family: 'Playfair Display', serif; font-size: 0.95rem; color: #4a5568;">Soft
+                                Beige Classic</h6>
                             <p class="text-muted mb-0" style="font-size: 0.85rem;">₹320.00</p>
                         </div>
 
                         <!-- Product 5 -->
                         <div class="col-md-4 col-sm-6 text-start" data-aos="fade-up" data-aos-delay="500">
                             <div class="position-relative mb-2 product-img-wrapper">
-                                <img src="../images/project_5.webp" alt="Light Cream Sophistication" class="w-100 img-fluid" style="object-fit: cover; height: 320px;">
+                                <img src="../images/project_5.webp" alt="Light Cream Sophistication"
+                                    class="w-100 img-fluid" style="object-fit: cover; height: 320px;">
                                 <div class="hover-overlay">
                                     <div class="hover-icon-circle">
                                         <i class="bi bi-bag fs-5"></i>
@@ -293,16 +381,21 @@
                                 </div>
                             </div>
                             <div class="text-warning small mb-1" style="font-size: 0.65rem; color: #d4c1b0 !important;">
-                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                    class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                    class="bi bi-star-fill"></i>
                             </div>
-                            <h6 class="mb-1" style="font-family: 'Playfair Display', serif; font-size: 0.95rem; color: #4a5568;">Light Cream Sophistication</h6>
+                            <h6 class="mb-1"
+                                style="font-family: 'Playfair Display', serif; font-size: 0.95rem; color: #4a5568;">
+                                Light Cream Sophistication</h6>
                             <p class="text-muted mb-0" style="font-size: 0.85rem;">₹520.00</p>
                         </div>
 
                         <!-- Product 6 -->
                         <div class="col-md-4 col-sm-6 text-start" data-aos="fade-up" data-aos-delay="600">
                             <div class="position-relative mb-2 product-img-wrapper">
-                                <img src="../images/project_6.webp" alt="Urban Chic Blazer" class="w-100 img-fluid" style="object-fit: cover; height: 320px;">
+                                <img src="../images/project_6.webp" alt="Urban Chic Blazer" class="w-100 img-fluid"
+                                    style="object-fit: cover; height: 320px;">
                                 <div class="hover-overlay">
                                     <div class="hover-icon-circle">
                                         <i class="bi bi-bag fs-5"></i>
@@ -310,34 +403,48 @@
                                 </div>
                             </div>
                             <div class="text-warning small mb-1" style="font-size: 0.65rem; color: #d4c1b0 !important;">
-                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                    class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                    class="bi bi-star-fill"></i>
                             </div>
-                            <h6 class="mb-1" style="font-family: 'Playfair Display', serif; font-size: 0.95rem; color: #4a5568;">Urban Chic Blazer</h6>
+                            <h6 class="mb-1"
+                                style="font-family: 'Playfair Display', serif; font-size: 0.95rem; color: #4a5568;">
+                                Urban Chic Blazer</h6>
                             <p class="text-muted mb-0" style="font-size: 0.85rem;">₹445.00</p>
                         </div>
 
                         <!-- Product 7 -->
                         <div class="col-md-4 col-sm-6 text-start" data-aos="fade-up" data-aos-delay="700">
                             <div class="position-relative mb-2 product-img-wrapper">
-                                <img src="../images/project_7.webp" alt="Nordic Summit" class="w-100 img-fluid" style="object-fit: cover; height: 320px;">
+                                <img src="../images/project_7.webp" alt="Nordic Summit" class="w-100 img-fluid"
+                                    style="object-fit: cover; height: 320px;">
                                 <div class="hover-overlay">
                                     <div class="hover-icon-circle">
                                         <i class="bi bi-bag fs-5"></i>
                                     </div>
                                 </div>
-                                <span class="position-absolute top-0 end-0 m-3 rounded-circle text-white d-flex align-items-center justify-content-center fw-bold" style="width: 32px; height: 32px; font-size: 0.55rem; background-color: #b78a6c;">-SALE</span>
+                                <span
+                                    class="position-absolute top-0 end-0 m-3 rounded-circle text-white d-flex align-items-center justify-content-center fw-bold"
+                                    style="width: 32px; height: 32px; font-size: 0.55rem; background-color: #b78a6c;">-SALE</span>
                             </div>
                             <div class="text-warning small mb-1" style="font-size: 0.65rem; color: #d4c1b0 !important;">
-                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
+                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                    class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                    class="bi bi-star-half"></i>
                             </div>
-                            <h6 class="mb-1" style="font-family: 'Playfair Display', serif; font-size: 0.95rem; color: #4a5568;">Nordic Summit</h6>
-                            <p class="mb-0" style="font-size: 0.85rem;"><span class="text-muted text-decoration-line-through me-2">₹310.00</span><span style="color: #b78a6c;">₹290.00</span></p>
+                            <h6 class="mb-1"
+                                style="font-family: 'Playfair Display', serif; font-size: 0.95rem; color: #4a5568;">
+                                Nordic Summit</h6>
+                            <p class="mb-0" style="font-size: 0.85rem;"><span
+                                    class="text-muted text-decoration-line-through me-2">₹310.00</span><span
+                                    style="color: #b78a6c;">₹290.00</span></p>
                         </div>
 
                         <!-- Product 8 -->
                         <div class="col-md-4 col-sm-6 text-start" data-aos="fade-up" data-aos-delay="800">
                             <div class="position-relative mb-2 product-img-wrapper">
-                                <img src="../images/project_8.webp" alt="Timber Vista" class="w-100 img-fluid" style="object-fit: cover; height: 320px;">
+                                <img src="../images/project_8.webp" alt="Timber Vista" class="w-100 img-fluid"
+                                    style="object-fit: cover; height: 320px;">
                                 <div class="hover-overlay">
                                     <div class="hover-icon-circle">
                                         <i class="bi bi-bag fs-5"></i>
@@ -345,16 +452,21 @@
                                 </div>
                             </div>
                             <div class="text-warning small mb-1" style="font-size: 0.65rem; color: #d4c1b0 !important;">
-                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                    class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                    class="bi bi-star-fill"></i>
                             </div>
-                            <h6 class="mb-1" style="font-family: 'Playfair Display', serif; font-size: 0.95rem; color: #4a5568;">Timber Vista</h6>
+                            <h6 class="mb-1"
+                                style="font-family: 'Playfair Display', serif; font-size: 0.95rem; color: #4a5568;">
+                                Timber Vista</h6>
                             <p class="text-muted mb-0" style="font-size: 0.85rem;">₹270.00</p>
                         </div>
 
                         <!-- Product 9 -->
                         <div class="col-md-4 col-sm-6 text-start" data-aos="fade-up" data-aos-delay="900">
                             <div class="position-relative mb-2 product-img-wrapper">
-                                <img src="../images/project_9.webp" alt="Meadow Lodge" class="w-100 img-fluid" style="object-fit: cover; height: 320px;">
+                                <img src="../images/project_9.webp" alt="Meadow Lodge" class="w-100 img-fluid"
+                                    style="object-fit: cover; height: 320px;">
                                 <div class="hover-overlay">
                                     <div class="hover-icon-circle">
                                         <i class="bi bi-bag fs-5"></i>
@@ -362,9 +474,13 @@
                                 </div>
                             </div>
                             <div class="text-warning small mb-1" style="font-size: 0.65rem; color: #d4c1b0 !important;">
-                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
+                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                    class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                    class="bi bi-star-half"></i>
                             </div>
-                            <h6 class="mb-1" style="font-family: 'Playfair Display', serif; font-size: 0.95rem; color: #4a5568;">Meadow Lodge</h6>
+                            <h6 class="mb-1"
+                                style="font-family: 'Playfair Display', serif; font-size: 0.95rem; color: #4a5568;">
+                                Meadow Lodge</h6>
                             <p class="text-muted mb-0" style="font-size: 0.85rem;">₹680.00</p>
                         </div>
                     </div>
@@ -373,54 +489,68 @@
         </div>
     </section>
 
-<!-- CTA / CONTACT SECTION -->
-    <section class="cta-section py-5 position-relative" style="background-image: url('../images/faq_bg.webp'); background-size: cover; background-position: center; background-attachment: fixed;">
+    <!-- CTA / CONTACT SECTION -->
+    <section class="cta-section py-5 position-relative"
+        style="background-image: url('../images/faq_bg.webp'); background-size: cover; background-position: center; background-attachment: fixed;">
         <!-- Dark Overlay -->
-        <div class="position-absolute top-0 start-0 w-100 h-100" style="background-color: rgba(30, 40, 50, 0.85); z-index: 1;"></div>
-        
+        <div class="position-absolute top-0 start-0 w-100 h-100"
+            style="background-color: rgba(30, 40, 50, 0.85); z-index: 1;"></div>
+
         <div class="container position-relative py-5" style="z-index: 2;">
             <div class="row justify-content-center text-center">
                 <div class="col-lg-8" data-aos="fade-up">
-                    <h2 class="text-white fw-bold mb-3" style="font-size: 2.5rem;">Don't Hesitate To Contact Us If You Have Any Questions</h2>
-                    <p class="text-white mb-5 mx-auto" style="opacity: 0.9; max-width: 600px; line-height: 1.7; font-size: 0.95rem;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                    
+                    <h2 class="text-white fw-bold mb-3" style="font-size: 2.5rem;">Don't Hesitate To Contact Us If You
+                        Have Any Questions</h2>
+                    <p class="text-white mb-5 mx-auto"
+                        style="opacity: 0.9; max-width: 600px; line-height: 1.7; font-size: 0.95rem;">Lorem ipsum dolor
+                        sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                        magna aliqua.</p>
+
                     <div class="d-flex flex-wrap justify-content-center gap-4 gap-md-5 mb-5">
                         <!-- Phone -->
                         <div class="d-flex align-items-center text-start">
-                            <div class="icon-box me-3 d-flex align-items-center justify-content-center rounded-circle" style="width: 60px; height: 60px; border: 2px solid #79cca3;">
-                                <i class="bi bi-telephone-outbound text-white fs-4" style="color: #79cca3 !important;"></i>
+                            <div class="icon-box me-3 d-flex align-items-center justify-content-center rounded-circle"
+                                style="width: 60px; height: 60px; border: 2px solid #79cca3;">
+                                <i class="bi bi-telephone-outbound text-white fs-4"
+                                    style="color: #79cca3 !important;"></i>
                             </div>
                             <div>
                                 <h5 class="text-white fw-bold mb-1 fs-5">Contact Us</h5>
                                 <p class="text-white mb-0" style="opacity: 0.8; font-size: 0.9rem;">+91 98765 43210</p>
                             </div>
                         </div>
-                        
+
                         <!-- Mail -->
                         <div class="d-flex align-items-center text-start">
-                            <div class="icon-box me-3 d-flex align-items-center justify-content-center rounded-circle" style="width: 60px; height: 60px; border: 2px solid #79cca3;">
+                            <div class="icon-box me-3 d-flex align-items-center justify-content-center rounded-circle"
+                                style="width: 60px; height: 60px; border: 2px solid #79cca3;">
                                 <i class="bi bi-envelope-open text-white fs-4" style="color: #79cca3 !important;"></i>
                             </div>
                             <div>
                                 <h5 class="text-white fw-bold mb-1 fs-5">Mail Us</h5>
-                                <p class="text-white mb-0" style="opacity: 0.8; font-size: 0.9rem;">support@stackly.com</p>
+                                <p class="text-white mb-0" style="opacity: 0.8; font-size: 0.9rem;">support@stackly.com
+                                </p>
                             </div>
                         </div>
                     </div>
-                    
-                    <a href="contact.html" class="btn text-white fw-semibold px-5 py-3 hover-target border-0" style="background-color: #79cca3; border-radius: 4px; box-shadow: 0 4px 15px rgba(121, 204, 163, 0.3);">Contact Us</a>
+
+                    <a href="contact.html" class="btn text-white fw-semibold px-5 py-3 hover-target border-0"
+                        style="background-color: #79cca3; border-radius: 4px; box-shadow: 0 4px 15px rgba(121, 204, 163, 0.3);">Contact
+                        Us</a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- FOOTER -->
-        <footer class="footer">
+    <footer class="footer">
         <div class="container">
             <div class="row g-5">
                 <div class="col-lg-4 col-md-6 footer-widget" data-aos="fade-up" data-aos-delay="100">
-                    <a href="../index.html" class="footer-logo hover-target"><img src="../images/logo.webp" alt="Stackly Logo" style="height: 65px;"></a>
-                    <p class="text-light opacity-75 mt-4 pe-lg-4">Premium enterprise textile manufacturer delivering excellence and innovation to global fashion and industrial brands since 1988.</p>
+                    <a href="../index.html" class="footer-logo hover-target"><img src="../images/logo.webp"
+                            alt="Stackly Logo" style="height: 65px;"></a>
+                    <p class="text-light opacity-75 mt-4 pe-lg-4">Premium enterprise textile manufacturer delivering
+                        excellence and innovation to global fashion and industrial brands since 1988.</p>
                     <div class="social-icons">
                         <a href="error404.html" class="hover-target"><i class="bi bi-linkedin"></i></a>
                         <a href="error404.html" class="hover-target"><i class="bi bi-twitter-x"></i></a>
@@ -431,33 +561,51 @@
                 <div class="col-lg-2 col-md-6 footer-widget" data-aos="fade-up" data-aos-delay="200">
                     <h4>Company</h4>
                     <ul class="footer-links">
-                        <li><a href="../index.html" class="hover-target"><i class="bi bi-chevron-right"></i> Home</a></li>
-                        <li><a href="services.html" class="hover-target"><i class="bi bi-chevron-right"></i> Service</a></li>
+                        <li><a href="../index.html" class="hover-target"><i class="bi bi-chevron-right"></i> Home</a>
+                        </li>
+                        <li><a href="services.html" class="hover-target"><i class="bi bi-chevron-right"></i> Service</a>
+                        </li>
                         <li><a href="shop.html" class="hover-target"><i class="bi bi-chevron-right"></i> Shop</a></li>
-                        <li><a href="about.html" class="hover-target"><i class="bi bi-chevron-right"></i> About Us</a></li>
-                        <li><a href="team.html" class="hover-target"><i class="bi bi-chevron-right"></i> Our Team</a></li>
-                        <li><a href="blog.html" class="hover-target"><i class="bi bi-chevron-right"></i> News & Blog</a></li>
-                        <li><a href="contact.html" class="hover-target"><i class="bi bi-chevron-right"></i> Contact Us</a></li>
+                        <li><a href="about.html" class="hover-target"><i class="bi bi-chevron-right"></i> About Us</a>
+                        </li>
+                        <li><a href="team.html" class="hover-target"><i class="bi bi-chevron-right"></i> Our Team</a>
+                        </li>
+                        <li><a href="blog.html" class="hover-target"><i class="bi bi-chevron-right"></i> News & Blog</a>
+                        </li>
+                        <li><a href="contact.html" class="hover-target"><i class="bi bi-chevron-right"></i> Contact
+                                Us</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-2 col-md-6 footer-widget" data-aos="fade-up" data-aos-delay="300">
                     <h4>Services</h4>
                     <ul class="footer-links">
-                        <li><a href="error404.html" class="hover-target"><i class="bi bi-chevron-right"></i> 404 Error</a></li>
+                        <li><a href="error404.html" class="hover-target"><i class="bi bi-chevron-right"></i> 404
+                                Error</a></li>
                         <li><a href="faq.html" class="hover-target"><i class="bi bi-chevron-right"></i> FAQ</a></li>
-                        <li><a href="error404.html" class="hover-target"><i class="bi bi-chevron-right"></i> Fabric Design</a></li>
-                        <li><a href="error404.html" class="hover-target"><i class="bi bi-chevron-right"></i> Mass Production</a></li>
-                        <li><a href="error404.html" class="hover-target"><i class="bi bi-chevron-right"></i> Quality Testing</a></li>
-                        <li><a href="error404.html" class="hover-target"><i class="bi bi-chevron-right"></i> Export Logistics</a></li>
-                        <li><a href="error404.html" class="hover-target"><i class="bi bi-chevron-right"></i> Online Store</a></li>
+                        <li><a href="error404.html" class="hover-target"><i class="bi bi-chevron-right"></i> Fabric
+                                Design</a></li>
+                        <li><a href="error404.html" class="hover-target"><i class="bi bi-chevron-right"></i> Mass
+                                Production</a></li>
+                        <li><a href="error404.html" class="hover-target"><i class="bi bi-chevron-right"></i> Quality
+                                Testing</a></li>
+                        <li><a href="error404.html" class="hover-target"><i class="bi bi-chevron-right"></i> Export
+                                Logistics</a></li>
+                        <li><a href="error404.html" class="hover-target"><i class="bi bi-chevron-right"></i> Online
+                                Store</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-4 col-md-6 footer-widget" data-aos="fade-up" data-aos-delay="400">
                     <h4>Newsletter</h4>
-                    <p class="text-light opacity-75">Subscribe to receive the latest updates on sustainable textiles and corporate news.</p>
+                    <p class="text-light opacity-75">Subscribe to receive the latest updates on sustainable textiles and
+                        corporate news.</p>
                     <form action="error404.html" class="mt-4 position-relative">
-                        <input type="email" class="form-control bg-transparent text-white border-secondary rounded-pill ps-4 pe-5 py-3" placeholder="Enter your email" required style="border: 1px solid rgba(255,255,255,0.2) !important;">
-                        <button type="submit" class="btn btn-premium rounded-circle position-absolute top-50 translate-middle-y hover-target" style="right: 5px; width: 45px; height: 45px; padding: 0;">
+                        <input type="email"
+                            class="form-control bg-transparent text-white border-secondary rounded-pill ps-4 pe-5 py-3"
+                            placeholder="Enter your email" required
+                            style="border: 1px solid rgba(255,255,255,0.2) !important;">
+                        <button type="submit"
+                            class="btn btn-premium rounded-circle position-absolute top-50 translate-middle-y hover-target"
+                            style="right: 5px; width: 45px; height: 45px; padding: 0;">
                             <i class="bi bi-send"></i>
                         </button>
                     </form>
@@ -486,16 +634,16 @@
             const wrappers = document.querySelectorAll('.product-img-wrapper');
             const cartContainer = document.getElementById('cart-items-container');
             const subtotalEl = document.getElementById('cart-subtotal');
-            
+
             // Load from localStorage if available to persist cart UI state
             let rawCartItems = JSON.parse(localStorage.getItem('stackly_cart')) || [];
-            
+
             // Auto-clean any corrupted items (e.g. from the previous regex bug)
             let cartItems = rawCartItems.filter(item => item.price > 0);
             if (cartItems.length !== rawCartItems.length) {
                 localStorage.setItem('stackly_cart', JSON.stringify(cartItems));
             }
-            
+
             function renderCartSidebar() {
                 cartContainer.innerHTML = '';
                 let total = 0;
@@ -504,7 +652,7 @@
                     cartContainer.innerHTML += `
                         <div class="d-flex align-items-center mb-3">
                             <div class="position-relative me-3">
-                                <a href="#" onclick="removeSidebarItem(${index}); event.preventDefault();" class="text-decoration-none text-muted position-absolute top-0 start-0 translate-middle d-flex align-items-center justify-content-center border border-secondary" style="font-size: 0.6rem; background: #fff; border-radius: 50%; width: 14px; height: 14px; z-index: 10;">&times;</a>
+                                <a href="error404.html" onclick="removeSidebarItem(${index}); event.preventDefault();" class="text-decoration-none text-muted position-absolute top-0 start-0 translate-middle d-flex align-items-center justify-content-center border border-secondary" style="font-size: 0.6rem; background: #fff; border-radius: 50%; width: 14px; height: 14px; z-index: 10;">&times;</a>
                                 <img src="${item.img}" width="45" height="55" style="object-fit: cover;" alt="Cart Item">
                             </div>
                             <div>
@@ -514,23 +662,23 @@
                         </div>
                     `;
                 });
-                
+
                 if (subtotalEl) {
                     subtotalEl.innerText = '₹ ' + total.toFixed(2);
                 }
-                
+
                 if (cartItems.length === 0) {
                     cartContainer.innerHTML = '<p class="text-muted small mb-3">No products in the cart.</p>';
                     if (subtotalEl) subtotalEl.innerText = '₹ 0.00';
                 }
             }
-            
-            window.removeSidebarItem = function(index) {
+
+            window.removeSidebarItem = function (index) {
                 const removedItem = cartItems[index];
                 cartItems.splice(index, 1);
                 localStorage.setItem('stackly_cart', JSON.stringify(cartItems));
                 renderCartSidebar();
-                
+
                 // Reset product checkmark in grid
                 document.querySelectorAll('.product-img-wrapper').forEach(w => {
                     const h6 = w.closest('.col-md-4').querySelector('h6');
@@ -545,13 +693,13 @@
                     }
                 });
             };
-            
+
             renderCartSidebar();
-            
+
             wrappers.forEach(wrapper => {
-                wrapper.addEventListener('click', function(e) {
+                wrapper.addEventListener('click', function (e) {
                     e.preventDefault();
-                    
+
                     const iconCircle = this.querySelector('.hover-icon-circle');
 
                     // Allow stacking by NOT resetting other products.
@@ -560,7 +708,7 @@
                     if (!iconCircle.classList.contains('added')) {
                         iconCircle.classList.add('added');
                         iconCircle.innerHTML = '<i class="bi bi-check-lg fs-5"></i>';
-                        
+
                         let tooltip = document.createElement('a');
                         tooltip.href = 'cart.html';
                         tooltip.className = 'cart-tooltip bg-dark text-white px-3 py-2 small rounded position-absolute shadow-sm text-decoration-none';
@@ -573,7 +721,7 @@
                         tooltip.style.animation = 'fadeIn 0.3s ease forwards';
                         tooltip.innerText = 'View cart';
                         this.appendChild(tooltip);
-                        
+
                         // Get product details
                         const container = this.closest('.col-md-4');
                         const name = container.querySelector('h6').textContent;
@@ -582,11 +730,11 @@
                         const actualPrice = priceMatches ? priceMatches[priceMatches.length - 1] : '₹0.00';
                         const imgSrc = this.querySelector('img').src;
                         const priceValue = parseFloat(actualPrice.replace('₹', ''));
-                        
+
                         // Add to localStorage
                         cartItems.push({ name: name, actualPrice: actualPrice, price: priceValue, img: imgSrc, quantity: 1 });
                         localStorage.setItem('stackly_cart', JSON.stringify(cartItems));
-                        
+
                         // Re-render sidebar
                         renderCartSidebar();
                     }
@@ -604,5 +752,54 @@
             document.head.appendChild(style);
         });
     </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const sortSelect = document.getElementById('sortSelect');
+            const productGrid = document.getElementById('productGrid');
+            if (sortSelect && productGrid) {
+                // Store initial order
+                const products = Array.from(productGrid.children).filter(el => el.tagName === 'DIV');
+                products.forEach((p, idx) => p.dataset.index = idx);
+
+                sortSelect.addEventListener('change', (e) => {
+                    const value = e.target.value;
+                    let sorted = [...products];
+
+                    // Helper to get price
+                    const getPrice = (el) => {
+                        const priceText = el.innerText.match(/\d+\.\d{2}/g);
+                        if (priceText && priceText.length > 0) {
+                            // If there's a sale, take the last price
+                            return parseFloat(priceText[priceText.length - 1]);
+                        }
+                        return 0;
+                    };
+
+                    if (value === "4") {
+                        // price: low to high
+                        sorted.sort((a, b) => getPrice(a) - getPrice(b));
+                    } else if (value === "5") {
+                        // price: high to low
+                        sorted.sort((a, b) => getPrice(b) - getPrice(a));
+                    } else if (value === "1") {
+                        // popularity (mock sort by price)
+                        sorted.sort((a, b) => getPrice(b) - getPrice(a));
+                    } else if (value === "3") {
+                        // latest (mock reverse index)
+                        sorted.sort((a, b) => parseInt(b.dataset.index) - parseInt(a.dataset.index));
+                    } else {
+                        // default or rating
+                        sorted.sort((a, b) => parseInt(a.dataset.index) - parseInt(b.dataset.index));
+                    }
+
+                    // Re-append
+                    productGrid.innerHTML = '';
+                    sorted.forEach(p => productGrid.appendChild(p));
+                });
+            }
+        });
+    </script>
 </body>
+
 </html>
