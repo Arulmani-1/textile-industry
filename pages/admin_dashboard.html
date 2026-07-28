@@ -187,7 +187,7 @@
                 <button class="menu-toggle me-3" id="menuToggle">
                     <i class="bi bi-list"></i>
                 </button>
-                <h5 class="mb-0 fw-bold d-none d-sm-block">Welcome back Admin</h5>
+                <h5 id="welcomeMsg1" class="mb-0 fw-bold d-none d-sm-block">Welcome back <span>User</span></h5>
             </div>
             
             <div class="ms-auto d-flex align-items-center">
@@ -206,7 +206,7 @@
         
         <!-- Overview Section -->
         <section id="dashboard-overview" class="content-section active-section">
-            <h2 class="fw-bold mb-4">Welcome back Admin</h2>
+            <h2 id="welcomeMsg2" class="fw-bold mb-4">Welcome back <span>User</span></h2>
             
             <div class="row g-4 mb-4">
                 <div class="col-12 col-sm-6 col-xl-3">
@@ -556,13 +556,21 @@
                 overlay.classList.remove('show');
             });
             
-            // Load Email from localStorage
+            // Load Name and Email from localStorage
+            const userName = localStorage.getItem('userName');
             const userEmail = localStorage.getItem('userEmail');
-            if (userEmail) {
-                const emailElement = document.getElementById('navbarUserEmail');
-                if (emailElement) {
-                    emailElement.textContent = userEmail;
-                }
+            
+            if (userName) {
+                const welcome1 = document.getElementById('welcomeMsg1');
+                const welcome2 = document.getElementById('welcomeMsg2');
+                const navName = document.getElementById('navbarUserEmail');
+                
+                if (welcome1) welcome1.innerHTML = `Welcome back ${userName}`;
+                if (welcome2) welcome2.innerHTML = `Welcome back ${userName}`;
+                if (navName) navName.textContent = userEmail || userName;
+            } else if (userEmail) {
+                const navName = document.getElementById('navbarUserEmail');
+                if (navName) navName.textContent = userEmail;
             }
         });
     </script>

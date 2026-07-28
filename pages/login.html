@@ -183,6 +183,12 @@
             
             if (email) {
                 localStorage.setItem('userEmail', email);
+                const users = JSON.parse(localStorage.getItem('stackly_users') || '{}');
+                if (users[email]) {
+                    localStorage.setItem('userName', users[email]);
+                } else {
+                    localStorage.setItem('userName', email.split('@')[0]);
+                }
             }
             
             if (role === 'admin') {
