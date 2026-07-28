@@ -637,7 +637,8 @@ img {
   color: rgba(255, 255, 255, 0.5);
 }
 
-/* News Corner Section */
+
+/* News Corner Section */
 .news-header {
   text-align: center;
   margin-bottom: 50px;
@@ -833,8 +834,19 @@ img {
     box-shadow: 0 5px 15px rgba(255, 184, 0, 0.4);
 }
 
+
 /* Footer Newsletter Placeholder Color */
 .footer-widget .form-control::placeholder {
     color: rgba(255, 255, 255, 0.7) !important;
     opacity: 1 !important; /* Required for Firefox */
+}
+
+/* Client Logos Hover Effect */
+.client-slider .swiper-slide h3 {
+    transition: color 0.3s ease, opacity 0.3s ease;
+    cursor: pointer;
+}
+.client-slider .swiper-slide h3:hover {
+    color: #cf152d !important;
+    opacity: 1 !important;
 }
